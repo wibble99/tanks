@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://ceagle56789a"]
+
+[ext_resource type="Script" path="res://scripts/eagle.gd" id="1_eagle"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1"]
+size = Vector2(14, 14)
+
+[node name="Eagle" type="StaticBody2D"]
+z_index = 1
+script = ExtResource("1_eagle")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_1")

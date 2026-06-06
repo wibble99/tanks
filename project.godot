@@ -11,8 +11,34 @@ config_version=5
 [application]
 
 config/name="tanks"
+run/main_scene="res://scenes/title.tscn"
 config/features=PackedStringArray("4.6", "Mobile")
 config/icon="res://icon.svg"
+
+[autoload]
+
+Constants="*res://scripts/autoload/constants.gd"
+GameManager="*res://scripts/autoload/game_manager.gd"
+ScreenFlash="*res://scripts/autoload/screen_flash.gd"
+UpgradeManager="*res://scripts/autoload/upgrade_manager.gd"
+
+[display]
+
+window/size/viewport_width=512
+window/size/viewport_height=416
+window/size/resizable=false
+window/stretch/mode="canvas_items"
+
+[layer_names]
+
+2d_physics/layer_1="walls"
+2d_physics/layer_2="player"
+2d_physics/layer_3="enemy"
+2d_physics/layer_4="bullet_player"
+2d_physics/layer_5="bullet_enemy"
+2d_physics/layer_6="eagle"
+2d_physics/layer_7="powerup"
+2d_physics/layer_8="water"
 
 [physics]
 
@@ -22,3 +48,4 @@ config/icon="res://icon.svg"
 
 rendering_device/driver.windows="d3d12"
 renderer/rendering_method="mobile"
+environment/defaults/default_clear_color=Color(0, 0, 0, 1)

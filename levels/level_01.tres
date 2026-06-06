@@ -1,0 +1,42 @@
+[gd_resource type="Resource" load_steps=2 format=3 uid="uid://b4q5rn1fv3j2c"]
+
+[ext_resource type="Script" path="res://levels/level_data.gd" id="1_levdat"]
+
+[resource]
+script = ExtResource("1_levdat")
+level_number = 1
+enemy_count = 20
+enemy_sequence = PackedInt32Array(0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0, 0, 1, 0, 0, 0, 2, 0, 1, 3)
+player_spawn_cols = PackedInt32Array(0, 24)
+enemy_spawn_cols = PackedInt32Array(0, 12, 24)
+eagle_col = 12
+eagle_row = 24
+powerup_chance = 0.2
+map_rows = PackedStringArray(
+"..........................",
+"..........................",
+"..BB....BB....BB....BB....",
+"..BB....BB....BB....BB....",
+"..........................",
+"....BB.....BB.....BB......",
+"....BB.....BB.....BB......",
+"..........................",
+"SS.......SS......SS......S",
+"SS.......SS......SS......S",
+"..........................",
+"..BB....BB....BB....BB....",
+"..BB....BB....BB....BB....",
+"..........................",
+"....BB.....BB.....BB......",
+"....BB.....BB.....BB......",
+"..........................",
+"SS.......SS......SS......S",
+"SS.......SS......SS......S",
+"..........................",
+"..BB....BB....BB....BB....",
+"..BB....BB....BB....BB....",
+"..........................",
+"..........BBB.BBB.........",
+"..........B...B...........",
+"..........BBB.BBB........."
+)
