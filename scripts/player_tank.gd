@@ -151,6 +151,7 @@ func take_damage() -> void:
 	exp.position = position
 	get_parent().add_child(exp)
 	ScreenFlash.flash()
+	SoundManager.play_explosion()
 	GameManager.lose_life()
 	died.emit()
 	queue_free()

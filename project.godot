@@ -21,6 +21,7 @@ Constants="*res://scripts/autoload/constants.gd"
 GameManager="*res://scripts/autoload/game_manager.gd"
 ScreenFlash="*res://scripts/autoload/screen_flash.gd"
 UpgradeManager="*res://scripts/autoload/upgrade_manager.gd"
+SoundManager="*res://scripts/autoload/sound_manager.gd"
 
 [display]
 

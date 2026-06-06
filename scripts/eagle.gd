@@ -23,6 +23,7 @@ func destroy() -> void:
 	exp.position = position
 	get_parent().add_child(exp)
 	ScreenFlash.flash()
+	SoundManager.play_explosion()
 	GameManager.eagle_destroyed()
 
 

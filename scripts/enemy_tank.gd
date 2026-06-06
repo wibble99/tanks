@@ -172,6 +172,7 @@ func _die() -> void:
 	exp.position = position
 	get_parent().add_child(exp)
 	ScreenFlash.flash()
+	SoundManager.play_explosion()
 	died.emit()
 	queue_free()
 

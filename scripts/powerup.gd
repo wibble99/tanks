@@ -34,6 +34,7 @@ func _process(delta: float) -> void:
 
 func _on_body_entered(body: Node2D) -> void:
 	if body.has_method("apply_powerup"):
+		SoundManager.play_pickup()
 		body.apply_powerup(powerup_type)
 		queue_free()
 

@@ -116,10 +116,12 @@ func _spawn_next_enemy() -> void:
 # ── Bullets ───────────────────────────────────────────────────────────────────
 
 func _on_player_fired(world_pos: Vector2, direction: Vector2) -> void:
+	SoundManager.play_shoot()
 	_spawn_bullet(world_pos, direction, true)
 
 
 func _on_enemy_fired(world_pos: Vector2, direction: Vector2) -> void:
+	SoundManager.play_shoot()
 	_spawn_bullet(world_pos, direction, false)
 
 
@@ -179,6 +181,7 @@ func _on_level_complete() -> void:
 		return
 	_game_over_pending = true
 	set_process(false)
+	SoundManager.play_victory()
 	await get_tree().create_timer(1.0).timeout
 	var pts := GameManager.current_level * 150
 	UpgradeManager.earn(pts)
