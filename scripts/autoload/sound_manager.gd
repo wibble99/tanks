@@ -28,13 +28,16 @@ func _make_pool(name: String, samples: PackedFloat32Array,
 func play(sound: String) -> void:
 	if not _pools.has(sound):
 		return
-	var pool: Array = _pools[sound]
-	var i: int = _idx[sound]
-	var p: AudioStreamPlayer = pool[i]
+	# Use untyped locals: Dictionary returns Variant, typed annotations would be hard errors
+	var pool = _pools[sound]
+	var i    = int(_idx[sound])
+	var p: AudioStreamPlayer = pool[i] as AudioStreamPlayer
+	if p == null:
+		return
 	if p.playing:
 		p.stop()
 	p.play()
-	_idx[sound] = (i + 1) % pool.size()
+	_idx[sound] = (i + 1) % (pool as Array).size()
 
 
 func play_shoot()     -> void: play("pew")

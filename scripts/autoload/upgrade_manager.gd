@@ -1,12 +1,10 @@
 extends Node
 
-enum Type { FIREPOWER = 0, SPEED = 1, RANK = 2, ABILITY = 3 }
-
+# Stat indices: 0=FIREPOWER 1=SPEED 2=RANK 3=ABILITY
 const MAX_LEVEL: int = 4
-const COSTS: Array = [100, 200, 400, 800]
 
 var points: int = 0
-var levels: Array = [0, 0, 0, 0]
+var levels: Array[int] = [0, 0, 0, 0]
 
 
 func _ready() -> void:
@@ -29,7 +27,12 @@ func earn(amount: int) -> void:
 
 func cost_for(type: int) -> int:
 	var lv: int = levels[type]
-	return COSTS[lv] if lv < MAX_LEVEL else 0
+	if lv >= MAX_LEVEL:
+		return 0
+	if lv == 0: return 100
+	if lv == 1: return 200
+	if lv == 2: return 400
+	return 800
 
 
 func can_buy(type: int) -> bool:
@@ -47,19 +50,19 @@ func buy(type: int) -> bool:
 # ── Stat accessors used by game entities ──────────────────────────────────────
 
 func fire_cooldown_mult() -> float:
-	return 1.0 - levels[Type.FIREPOWER] * 0.15
+	return 1.0 - levels[0] * 0.15
 
 func speed_mult() -> float:
-	return 1.0 + levels[Type.SPEED] * 0.20
+	return 1.0 + levels[1] * 0.20
 
 func rank_hits() -> int:
-	return 1 + levels[Type.RANK]
+	return 1 + levels[2]
 
 func has_star_shot() -> bool:
-	return levels[Type.FIREPOWER] >= 3
+	return levels[0] >= 3
 
 func starting_powerup() -> int:
-	match levels[Type.ABILITY]:
+	match levels[3]:
 		1: return Constants.PowerupType.SHIELD
 		2: return Constants.PowerupType.STAR
 		3: return Constants.PowerupType.FREEZE

@@ -1,4 +1,4 @@
-[gd_scene load_steps=2 format=3 uid="uid://cupgr4d3ov3r1"]
+[gd_scene format=3]
 
 [ext_resource type="Script" path="res://scripts/upgrade_overlay.gd" id="1_uo"]
 
