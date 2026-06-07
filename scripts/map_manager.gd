@@ -18,7 +18,7 @@ var enemy_spawn_cols: Array[int] = [0, 12, 24]
 
 @onready var _tree_layer: Node2D = $TreeLayer
 
-
+		  
 func _ready() -> void:
 	add_to_group("map_manager")
 	var level_data: LevelData = load("res://levels/level_01.tres")
